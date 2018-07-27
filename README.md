@@ -51,7 +51,7 @@ npm i --save remark-macro
 
 ```js
 const remark = require('remark')
-const macro = require('macro')()
+const macro = require('remark-macro')()
 const html = require('remark-html')
 
 macro.addMacro('alert', function (content, props, { transformer, eat }) {
