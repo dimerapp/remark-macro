@@ -52,7 +52,8 @@ function badNode (message) {
 function linterFn (tree, file) {
   visit(tree, 'BadMacroNode', visitor)
   function visitor (node) {
-    file.message(node.data.hChildren[0].value, node.position.start)
+    const message = file.message(node.data.hChildren[0].value, node.position.start)
+    message.fatal = true
   }
 }
 
