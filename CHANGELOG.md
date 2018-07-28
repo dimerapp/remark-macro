@@ -1,3 +1,14 @@
+<a name="1.0.4"></a>
+## [1.0.4](https://github.com/dimerapp/remark-macro/compare/v1.0.3...v1.0.4) (2018-07-28)
+
+
+### Bug Fixes
+
+* set bad macro node message to fatal ([2163b16](https://github.com/dimerapp/remark-macro/commit/2163b16))
+* **rollup:** uglify module exports named export over default ([f5a44ec](https://github.com/dimerapp/remark-macro/commit/f5a44ec))
+
+
+
 <a name="1.0.3"></a>
 ## [1.0.3](https://github.com/poppinss/remark-macro/compare/v1.0.2...v1.0.3) (2018-03-26)
 
