@@ -1,3 +1,13 @@
+<a name="1.0.5"></a>
+## [1.0.5](https://github.com/dimerapp/remark-macro/compare/v1.0.4...v1.0.5) (2018-07-29)
+
+
+### Features
+
+* **badNode:** now badNode accepts the ruleId to be set on the vfile messages ([be3b8da](https://github.com/dimerapp/remark-macro/commit/be3b8da))
+
+
+
 <a name="1.0.4"></a>
 ## [1.0.4](https://github.com/dimerapp/remark-macro/compare/v1.0.3...v1.0.4) (2018-07-28)
 

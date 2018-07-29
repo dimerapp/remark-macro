@@ -20,12 +20,16 @@ const visit = require('unist-util-visit')
  * @method badNode
  *
  * @param  {String} message
+ * @param  {String} ruleId
  *
  * @return {Object}
  */
-function badNode (message) {
+function badNode (message, ruleId) {
   return {
     type: 'BadMacroNode',
+    props: {
+      ruleId: ruleId || 'syntax-error'
+    },
     data: {
       hName: 'div',
       hChildren: [
@@ -53,6 +57,7 @@ function linterFn (tree, file) {
   visit(tree, 'BadMacroNode', visitor)
   function visitor (node) {
     const message = file.message(node.data.hChildren[0].value, node.position.start)
+    message.ruleId = node.props.ruleId
     message.fatal = true
   }
 }
@@ -152,7 +157,7 @@ function processBlock (eat, value, { $, spaces, macroName, macro, props }, macro
    * closed
    */
   if (!isClosed) {
-    eat($)(badNode(`Unclosed macro: ${macroName}`))
+    eat($)(badNode(`Unclosed macro: ${macroName}`, 'unclosed-macro'))
     return
   }
 
