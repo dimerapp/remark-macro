@@ -1,6 +1,6 @@
 {
   "name": "remark-macro",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A macro system for remarkjs",
   "main": "index.js",
   "browser": "browser.js",

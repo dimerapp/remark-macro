@@ -1,3 +1,8 @@
+<a name="1.0.6"></a>
+## [1.0.6](https://github.com/dimerapp/remark-macro/compare/v1.0.5...v1.0.6) (2018-10-09)
+
+
+
 <a name="1.0.5"></a>
 ## [1.0.5](https://github.com/dimerapp/remark-macro/compare/v1.0.4...v1.0.5) (2018-07-29)
 
