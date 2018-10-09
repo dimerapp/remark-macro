@@ -13,10 +13,8 @@
   "scripts": {
     "mrm": "mrm --preset=@adonisjs/mrm-preset",
     "pretest": "npm run lint",
-    "test": "japa",
-    "prepublishOnly": "npm run build & pkg-ok",
+    "test": "node japaFile.js",
     "commit": "git-cz",
-    "build": "rollup -c",
     "lint": "standard"
   },
   "keywords": [
@@ -30,25 +28,26 @@
     "unist-util-visit": "^1.4.0"
   },
   "devDependencies": {
-    "@adonisjs/mrm-preset": "^1.0.10",
+    "@adonisjs/mrm-preset": "^1.0.14",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
-    "commitizen": "^2.10.1",
+    "commitizen": "^3.0.2",
     "cz-conventional-changelog": "^2.1.0",
     "dedent": "^0.7.0",
-    "japa": "^1.0.6",
+    "japa": "^2.0.4",
     "japa-cli": "^1.0.1",
     "mrm": "^1.2.1",
-    "pkg-ok": "^2.2.0",
-    "remark-html": "^7.0.0",
+    "pkg-ok": "^2.3.1",
+    "remark-html": "^8.0.0",
     "remark-parse": "^5.0.0",
-    "rollup": "^0.63.4",
-    "rollup-plugin-babel": "^3.0.7",
-    "rollup-plugin-commonjs": "^9.1.4",
-    "rollup-plugin-node-resolve": "^3.3.0",
-    "rollup-plugin-uglify": "^4.0.0",
-    "standard": "^11.0.1",
-    "unified": "^7.0.0"
+    "rollup": "^0.66.5",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-commonjs": "^9.1.8",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-uglify": "^6.0.0",
+    "standard": "^12.0.1",
+    "unified": "^7.0.0",
+    "yorkie": "^2.0.0"
   },
   "config": {
     "commitizen": {
@@ -62,8 +61,7 @@
   },
   "nyc": {
     "exclude": [
-      "test",
-      "japaFile.js"
+      "test"
     ]
   },
   "directories": {
@@ -76,5 +74,8 @@
   "bugs": {
     "url": "https://github.com/dimerapp/remark-macro/issues"
   },
-  "homepage": "https://github.com/dimerapp/remark-macro#readme"
+  "homepage": "https://github.com/dimerapp/remark-macro#readme",
+  "gitHooks": {
+    "commit-msg": "node ./node_modules/@adonisjs/mrm-preset/validateCommit/conventional/validate.js"
+  }
 }
