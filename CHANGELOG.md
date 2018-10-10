@@ -1,3 +1,13 @@
+<a name="1.0.7"></a>
+## [1.0.7](https://github.com/dimerapp/remark-macro/compare/v1.0.6...v1.0.7) (2018-10-10)
+
+
+### Features
+
+* **badNode:** attach current file path to the badNode error messages ([424ad04](https://github.com/dimerapp/remark-macro/commit/424ad04))
+
+
+
 <a name="1.0.6"></a>
 ## [1.0.6](https://github.com/dimerapp/remark-macro/compare/v1.0.5...v1.0.6) (2018-10-09)
 

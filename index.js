@@ -28,7 +28,8 @@ function badNode (message, ruleId) {
   return {
     type: 'BadMacroNode',
     props: {
-      ruleId: ruleId || 'syntax-error'
+      ruleId: ruleId || 'syntax-error',
+      sourcePath: this.file.path
     },
     data: {
       hName: 'div',
@@ -59,6 +60,11 @@ function linterFn (tree, file) {
     const message = file.message(node.data.hChildren[0].value, node.position.start)
     message.ruleId = node.props.ruleId
     message.fatal = true
+
+    if (node.props.sourcePath) {
+      message.name = message.name.replace(message.file, node.props.sourcePath)
+      message.file = node.props.sourcePath
+    }
   }
 }
 
@@ -157,7 +163,7 @@ function processBlock (eat, value, { $, spaces, macroName, macro, props }, macro
    * closed
    */
   if (!isClosed) {
-    eat($)(badNode(`Unclosed macro: ${macroName}`, 'unclosed-macro'))
+    eat($)(macroFnPayload.badNode(`Unclosed macro: ${macroName}`, 'unclosed-macro'))
     return
   }
 
@@ -209,7 +215,7 @@ module.exports = function () {
     const macroFnPayload = {
       transformer: this,
       eat,
-      badNode
+      badNode: badNode.bind(this)
     }
 
     if (macro.inline) {
@@ -275,7 +281,6 @@ module.exports = function () {
       const { blockMethods, blockTokenizers } = this.Parser.prototype
       blockMethods.splice(blockMethods.indexOf('paragraph'), 0, 'macro')
       blockTokenizers.macro = transformNodes
-
       return linterFn
     }
   }
