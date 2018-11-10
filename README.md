@@ -59,9 +59,9 @@ macro.addMacro('alert', function (content, props, { transformer, eat }) {
     type: 'AlertNode',
     data: {
       hName: 'div',
-      hClassNames: ['alert alert-note'],
-      hChildren: transformer.tokenizeBlock(content, eat.now())
-    }
+      hClassNames: ['alert alert-note']
+    },
+    children: transformer.tokenizeBlock(content, eat.now())
   } 
 })
 
